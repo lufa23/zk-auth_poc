@@ -56,5 +56,13 @@ mod test {
 
         let result = verify(&r1, &r2, &y1, &y2, &alpha, &beta, &c, &s, &p);
         assert!(result);
+
+        // fake secret
+        let x_fake = BigUint::from(7u32);
+        let s_fake = solve(&k, &c , &x_fake, &q);
+        assert_eq!(s, BigUint::from(5u32));
+
+        let result = verify(&r1, &r2, &y1, &y2, &alpha, &beta, &c, &s_fake, &p);
+        assert!(!result);
     }
 }
