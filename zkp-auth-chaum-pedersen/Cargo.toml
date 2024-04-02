@@ -7,6 +7,16 @@ edition = "2021"
 rand = "0.8"
 num-bigint = { version ="0.4" , features = ["rand"] }
 hex = "0.4.3"
+tonic = "0.9"
 
 [build-dependencies]
 tonic-build = "0.9"
+
+[[bin]]
+name = "server"
+path = "./src/server.rs"
+
+
+[[bin]]
+name = "client"
+path = "./src/client.rs"
